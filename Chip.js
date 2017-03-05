@@ -2,24 +2,24 @@
  * Created by ДНС on 05.03.2017.
  */
 var Chip = (function () {
-   var exports =  function Chip(position) {
+   var exports =  function (position) {
         var self = this;
         self.position = position
-        self.weight = generateSpoce() ? 4 : 2;
+        self.weight = utills.generateSpoce() ? 4 : 2;
     }
-    Chip.prototype.init = function () {
+    exports.prototype.init = function () {
         $("#" + this.position).removeClass().addClass("thing t" + this.weight);
     }
 
-    Chip.prototype.transform = function () {
+    exports.prototype.transform = function () {
         this.weight *= 2;
         this.init();
     }
 
-    Chip.prototype.remove = function () {
+    exports.prototype.remove = function () {
         $('#' + this.position).removeClass().addClass("back");
     }
-    Chip.prototype.reDraw = function (newPosition) {
+    exports.prototype.reDraw = function (newPosition) {
         if(this.position == newPosition){
             return false;
         }
@@ -28,5 +28,6 @@ var Chip = (function () {
         this.init();
         return true;
     }
+    
     return exports;
 })();
