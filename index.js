@@ -14,14 +14,14 @@ $(document).ready(function () {
             arr.reverse();
         }
         //Схлопывание
-        arr.forEach(function (item, index) {
+
+        arr = arr.filter(function (item, index, self) {
             if(index == 0 || skip)
             {
                 skip = false;
-                return;
+                return true;
             }
             var pref = arr[index - 1];
-
             if(pref.weight == item.weight)
             {
                 var scoreItem = +(utills.score.text());
@@ -29,14 +29,17 @@ $(document).ready(function () {
                 utills.score.text(scoreItem);
                 pref.transform();
                 item.remove();
-                arr.splice(index, 1);
                 chips.splice(chips.indexOf(item), 1);
                 skip = true;
                 move = true;
+                return false;
             }
+            return true;
         })
         //Смещение
-        arr.forEach(function (item, index) {
+        console.log(arr);
+        arr.forEach(function (item, index, self) {
+            console.log(self);
             if(index == 0)
             {
                 if(item.reDraw(lastPosition)){
@@ -45,19 +48,19 @@ $(document).ready(function () {
             }
             else {
                 if(direction == utills._DIR._NORTH){
-                    if(item.reDraw(arr[index - 1].position + 1)){
+                    if(item.reDraw(self[index - 1].position + 1)){
                         move= true;
                     }
                 } else if(direction == utills._DIR._SOUTH){
-                    if(item.reDraw(arr[index - 1].position - 1)){
+                    if(item.reDraw(self[index - 1].position - 1)){
                         move= true;
                     }
                 } else if ( direction == utills._DIR._WEST){
-                    if(item.reDraw(arr[index -1].position + 4)){
+                    if(item.reDraw(self[index -1].position + 4)){
                         move = true;
                     }
                 } else if(direction == utills._DIR._EAST) {
-                    if(item.reDraw(arr[index-1].position - 4)){
+                    if(item.reDraw(self[index-1].position - 4)){
                         move = true;
                     }
                 }

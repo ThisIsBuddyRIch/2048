@@ -6,28 +6,30 @@ var Chip = (function () {
         var self = this;
         self.position = position
         self.weight = utills.generateSpoce() ? 4 : 2;
+
     }
     exports.prototype.init = function () {
-        $("#" + this.position).removeClass().addClass("thing t" + this.weight);
+        this.dom = $('<div></div>').appendTo('#playfield')
+        this.dom.removeClass().addClass("thing t" + this.weight).addClass("position"+this.position).fadeIn(3000);;
     }
 
     exports.prototype.transform = function () {
         this.weight *= 2;
-        this.init();
+        this.dom.removeClass().addClass("thing t" + this.weight).addClass("position" + this.position);
     }
 
     exports.prototype.remove = function () {
-        $('#' + this.position).removeClass().addClass("back");
+       this.dom.remove();
     }
     exports.prototype.reDraw = function (newPosition) {
         if(this.position == newPosition){
             return false;
         }
-        this.remove();
+        this.dom.removeClass("position"+ this.position).addClass("position" + newPosition);
         this.position = newPosition;
-        this.init();
         return true;
     }
+
     
     return exports;
 })();

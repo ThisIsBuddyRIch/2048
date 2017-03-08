@@ -25,23 +25,59 @@
             left: 100px;
             width: 400px;
             height: 400px;
-            background: white;
-        }
-        .back{
-            position: absolute;
-            width: 100px;
-            height: 100px;
             background: gray;
         }
-        .thing{
+
+        .thing {
             position: absolute;
             width: 100px;
             height: 100px;
             background: transparent;
             color: black;
+            z-index: 20;
             text-align: center;
             font: 48px/96px Arial;
+            transition-property: left, top;
+            transition-duration: 50ms;
+            transition-timing-function: ease-in;
+            -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+            -moz-animation: fadein 2s; /* Firefox < 16 */
+            -ms-animation: fadein 2s; /* Internet Explorer */
+            -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+
         }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Firefox < 16 */
+        @-moz-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Safari, Chrome and Opera > 12.1 */
+        @-webkit-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Internet Explorer */
+        @-ms-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Opera < 12.1 */
+        @-o-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+
         .thing.t2{
             background: #18df00;
         }
@@ -84,6 +120,83 @@
         .thing.t128:after{
             content: '128'
         }
+        .thing.t256{
+            background: #0a034c;
+        }
+        .thing.t256:after{
+            content: '256'
+        }
+
+        .thing.t512{
+            background: #0a034c;
+        }
+        .thing.t512:after{
+            content: '512'
+        }
+        .position1 {
+            top: 0px;
+            left: 0px;
+        }
+        .position2{
+            top: 100px;
+            left: 0px;
+        }
+        .position3{
+            top: 200px;
+            left: 0px
+        }
+        .position4 {
+            top: 300px;
+            left: 0px;
+        }
+        .position5{
+            top: 0px;
+            left: 100px;
+        }
+        .position6{
+            top: 100px;
+            left: 100px;
+        }
+        .position7{
+            top: 200px;
+            left: 100px;
+        }
+        .position8{
+            top: 300px;
+            left: 100px;
+        }
+        .position9{
+            top: 0px;
+            left: 200px;
+        }
+        .position10{
+            top: 100px;
+            left: 200px;
+        }
+        .position11{
+            top: 200px;
+            left: 200px;
+        }
+        .position12{
+            top: 300px;
+            left: 200px;
+        }
+        .position13{
+            top: 0px;
+            left: 300px;
+        }
+        .position14{
+            top: 100px;
+            left: 300px;
+        }
+        .position15{
+            top: 200px;
+            left: 300px;
+        }
+        .position16{
+            top: 300px;
+            left: 300px;
+        }
         /* и так далее */
 
     </style>
@@ -92,22 +205,7 @@
 <body>
 <h1>Score : <span id="score"></span></h1>
 <div id="playfield">
-    <div class="back" style="top: 0px; left: 0px;" id="1"></div>
-    <div class="back" style="top: 100px; left: 0px;" id="2"></div>
-    <div class="back" style="top: 200px; left: 0px;" id="3"></div>
-    <div class="back" style="top: 300px; left: 0px;" id="4"></div>
-    <div class="back" style="top: 0px; left: 100px;" id="5"></div>
-    <div class="back" style="top: 100px; left: 100px;" id="6"></div>
-    <div class="back" style="top: 200px; left: 100px;" id="7"></div>
-    <div class="back" style="top: 300px; left: 100px;" id="8"></div>
-    <div class="back" style="top: 0px; left: 200px;" id="9"></div>
-    <div class="back" style="top: 100px; left: 200px;" id="10"></div>
-    <div class="back" style="top: 200px; left: 200px;" id="11"></div>
-    <div class="back" style="top: 300px; left: 200px;" id="12"></div>
-    <div class="back" style="top: 0px; left: 300px;" id="13"></div>
-    <div class="back" style="top: 100px; left: 300px;" id="14"></div>
-    <div class="back" style="top: 200px; left: 300px;" id="15"></div>
-    <div class="back" style="top: 300px; left: 300px;" id="16"></div>
+
 
 
 </div>
