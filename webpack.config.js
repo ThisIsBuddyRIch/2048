@@ -2,8 +2,6 @@
  * Created by ДНС on 26.01.2017.
  */
 
-const NODE_ENV = "dev"
-
 module.exports = {
     entry: "./src/index",
     output: {
