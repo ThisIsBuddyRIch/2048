@@ -1,9 +1,9 @@
 /**
  * Created by ДНС on 05.03.2017.
  */
-var chips = (function () {
-    var exports = [];
-    exports.vertical = function () {
+
+    var chips = [];
+    chips.vertical = function () {
         var result = [];
         result.push(this.filter(function (item) {
             return item.position <=4
@@ -26,7 +26,7 @@ var chips = (function () {
         return result;
     }
 
-    exports.gorisontal = function () {
+    chips.gorisontal = function () {
         var result = [];
         result.push(this.filter(function (item) {
             return item.position % 4 == 1;
@@ -48,7 +48,7 @@ var chips = (function () {
         return result;
     }
 
-    exports.generateVacantPositions = function () {
+    chips.generateVacantPositions = function () {
         var src = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
         this.forEach(function (item) {
@@ -57,5 +57,4 @@ var chips = (function () {
 
         return src;
     }
-    return exports;
-})();
+ export default chips;

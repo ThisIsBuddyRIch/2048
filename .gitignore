@@ -32,3 +32,8 @@ _ReSharper*/
 packages/
 /.idea
 /.idea
+node_modules/
+.idea/
+*map
+*-compiled.js
+.idea/workspace.xml
