@@ -15,7 +15,6 @@ export default class Kernel {
         //Схлопывание
         arr = arr.filter(function (item, index, self) {
             if (index == 0 || skip) {
-
                 skip = false;
             } else {
                 var pref = self[index - 1];
